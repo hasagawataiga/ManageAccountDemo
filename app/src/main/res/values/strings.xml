@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ManageAccountDemo</string>
+    <string name="Logo">LOGO</string>
+    <string name="CreateAccount">Create an Account</string>
+    <string name="Username">Username</string>
+    <string name="FullName">Full name</string>
+    <string name="Email">Email</string>
+    <string name="PhoneNumber">Phone number</string>
+    <string name="Password">Password</string>
+    <string name="Register">Register</string>
+    <string name="ReturnToHome">Return To Home</string>
+    <string name="AlreadyRegister">Already Registered? Login Here</string>
+    <string name="LoginTag">Welcome</string>
+    <string name="NewHere">New Here? Create an Account</string>
+</resources>
