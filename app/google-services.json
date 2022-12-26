@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "56345325648",
+    "project_id": "management-account-d4f23",
+    "storage_bucket": "management-account-d4f23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56345325648:android:ef13b22e0d28edb09e6155",
+        "android_client_info": {
+          "package_name": "orca.application.manageaccountdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56345325648-1fdai2bfqkn77kvnvm0qa7s50a7o2qet.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHK9MWKw9VImQzQGeFK597bvpCRes5eT8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56345325648-1fdai2bfqkn77kvnvm0qa7s50a7o2qet.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
