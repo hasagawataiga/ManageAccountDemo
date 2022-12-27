@@ -12,4 +12,8 @@
     <string name="AlreadyRegister">Already Registered? Login Here</string>
     <string name="LoginTag">Welcome</string>
     <string name="NewHere">New Here? Create an Account</string>
+    <string name="password">Password</string>
+    <string name="Sign_In">Sign In</string>
+    <string name="Sign_Up">Sign Up</string>
+    <string name="sign_out">Sign Out</string>
 </resources>

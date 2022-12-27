@@ -6,90 +6,116 @@
     android:layout_height="match_parent"
     tools:context=".UserLogin">
 
+    <!--    app:fontFamily="@font/advent_pro_thin"-->
+    <!--    app:fontFamily="@font/advent_pro_thin"-->
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="20dp"
         android:text="@string/Logo"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="45dp"
-
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-    <!--    app:fontFamily="@font/advent_pro_thin"-->
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
         android:text="@string/LoginTag"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/et_username2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent" />
-    <!--    app:fontFamily="@font/advent_pro_thin"-->
-
-    <EditText
-        android:id="@+id/et_username2"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:background="#005E4A4A"
-        android:ems="10"
-        android:hint="@string/Username"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:padding="10dp"
-        android:textColor="#000000"
-        android:textColorHint="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/et_password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/et_password"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="68dp"
-        android:background="#005E4A4A"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:padding="10dp"
-        android:textColor="#000000"
-        android:textColorHint="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/btn_login"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@id/textView"/>
 
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="211dp"
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:background="#000000"
-        android:onClick="signIn"
-        android:text="Login"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tv_goToRegister"
+        android:orientation="vertical"
+        android:paddingHorizontal="50dp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_goToRegister"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@id/textView2"
+        app:layout_constraintVertical_bias="0.189"
+        >
+
+        <EditText
+            android:id="@+id/et_username2"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="20dp"
+            android:background="#005E4A4A"
+            android:hint="@string/Username"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColor="#000000"
+            android:textColorHint="#000000" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="20dp"
+            android:background="#005E4A4A"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_Google_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:buttonSize="standard" />
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/sign_in_Facebook_button"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+
+            android:layout_marginBottom="20dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="211dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="#000000"
+            android:onClick="signIn"
+            android:text="Login"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/sign_out_button"
+            android:layout_width="211dp"
+            android:layout_height="48dp"
+            android:text="@string/sign_out" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tv_goToRegister"
