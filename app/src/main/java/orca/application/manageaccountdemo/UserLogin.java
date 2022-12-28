@@ -38,6 +38,7 @@ public class UserLogin extends AppCompatActivity {
 
     Button btn_login_Google;
     Button btn_login_Facebook;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState,
                             @Nullable PersistableBundle persistableBundle) {
@@ -46,6 +47,9 @@ public class UserLogin extends AppCompatActivity {
         assignElementLayout();
 
         oneTapClient = Identity.getSignInClient(this);
+
+
+
         signInRequest = BeginSignInRequest.builder()
                 .setPasswordRequestOptions(BeginSignInRequest.PasswordRequestOptions.builder()
                         .setSupported(true)
@@ -71,11 +75,16 @@ public class UserLogin extends AppCompatActivity {
         super.onStart();
 
         // Check if user is signed in (non-null) and update UI accordingly.
-        try{
-            FirebaseUser currentUser = mAuth.getCurrentUser();
+//        try{
+//            FirebaseUser currentUser = mAuth.getCurrentUser();
+//            updateUI(currentUser);
+//        }catch (Exception e){
+//            Log.d("curretnUser", "FirebaseUser return null.");
+//        }
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
             updateUI(currentUser);
-        }catch (Exception e){
-            Log.d("curretnUser", "FirebaseUser return null.");
         }
     }
 
