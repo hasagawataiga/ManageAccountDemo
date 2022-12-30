@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">ManageAccountDemo</string>
     <string name="Logo">LOGO</string>
     <string name="CreateAccount">Create an Account</string>
