@@ -16,4 +16,8 @@
     <string name="Sign_In">Sign In</string>
     <string name="Sign_Up">Sign Up</string>
     <string name="sign_out">Sign Out</string>
+
+    <string name="facebook_app_id">689848842848322</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">0faa543e52bedf1462273c1a181b3fd1</string>
 </resources>
