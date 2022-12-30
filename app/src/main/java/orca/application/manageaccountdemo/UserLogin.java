@@ -39,6 +39,7 @@ public class UserLogin extends AppCompatActivity {
         setContentView(R.layout.activity_user_login);
 
         btn_login_Google = findViewById(R.id.btn_login_Google);
+        btn_login_Facebook = findViewById(R.id.btn_login_Facebook);
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this, gso);
 
