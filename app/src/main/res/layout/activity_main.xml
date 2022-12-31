@@ -20,14 +20,36 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
+        <TextView
+            android:id="@+id/tv_userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guest"
+            android:textSize="20dp"
+            android:textAllCaps="true"
+            android:layout_marginEnd="20dp"/>
+
+        <Button
+            android:id="@+id/btn_signOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:onClick="signOut"
+            android:text="@string/Sign_Out"
+            app:layout_constraintHorizontal_bias="0.01"
+            app:layout_constraintVertical_bias="0.95" />
+
         <Button
             android:id="@+id/btn_signIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="goToSignIn"
             android:text="@string/Sign_In"
+            android:layout_marginEnd="20dp"
             app:layout_constraintHorizontal_bias="0.01"
-            app:layout_constraintVertical_bias="0.95" />
+            app:layout_constraintVertical_bias="0.95"
+            android:visibility="visible"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

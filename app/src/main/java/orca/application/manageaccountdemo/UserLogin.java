@@ -5,7 +5,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -33,6 +36,8 @@ public class UserLogin extends AppCompatActivity {
     Button btn_login_Google;
     Button btn_login_Facebook;
     CallbackManager callbackManager;
+    UserModel userModel;
+    boolean isLoggedIn = false;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +54,10 @@ public class UserLogin extends AppCompatActivity {
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        startActivity(new Intent(UserLogin.this, MainActivity.class));
+                        isLoggedIn = true;
+                        Intent intent = new Intent(UserLogin.this, MainActivity.class);
+                        intent.putExtra(Constants.LOGGED_IN, isLoggedIn);
+                        startActivity(intent);
                     }
 
                     @Override
@@ -79,15 +87,28 @@ public class UserLogin extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 task.getResult(ApiException.class);
-                goToMainActivity();
+                GoogleSignInAccount accountInfo = GoogleSignIn.getLastSignedInAccount(UserLogin.this);
+                String personName = accountInfo.getDisplayName();
+                String personGivenName = accountInfo.getGivenName();
+                String personFamilyName = accountInfo.getFamilyName();
+                String personEmail = accountInfo.getEmail();
+                String personId = accountInfo.getId();
+                Uri personPhoto = accountInfo.getPhotoUrl();
+                userModel = new UserModel(personName, personGivenName, personFamilyName,
+                        personEmail, personId, personPhoto);
+                Log.d("User info", userModel.toString());
+                isLoggedIn = true;
+                goToMainActivityByGoogleAccount();
             } catch (ApiException e) {
                 Toast.makeText(getApplicationContext(), "can not get result", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
-    private void goToMainActivity() {
+    private void goToMainActivityByGoogleAccount() {
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra(Constants.LOGGED_IN, isLoggedIn);
+        intent.putExtra(Constants.ACCOUNT_INFO, (Parcelable) userModel);
         startActivity(intent);
     }
 }
