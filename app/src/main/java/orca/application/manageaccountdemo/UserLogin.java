@@ -8,9 +8,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.facebook.CallbackManager;
@@ -23,9 +25,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Arrays;
@@ -35,8 +39,14 @@ public class UserLogin extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
+
+    EditText et_email2;
+    EditText et_password2;
     Button btn_login_Google;
     Button btn_login_Facebook;
+    String email;
+    String password;
+
     CallbackManager callbackManager;
     UserModel userModel;
     boolean isLoggedIn = false;
@@ -45,6 +55,8 @@ public class UserLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
 
+        et_email2 = findViewById(R.id.et_email2);
+        et_password2 = findViewById(R.id.et_password2);
         btn_login_Google = findViewById(R.id.btn_login_Google);
         btn_login_Facebook = findViewById(R.id.btn_login_Facebook);
 
@@ -83,6 +95,36 @@ public class UserLogin extends AppCompatActivity {
     public void signInGoogle(View view){
         Intent signInIntent = gsc.getSignInIntent();
         startActivityForResult(signInIntent, 1000);
+    }
+
+    public void signIn (View view){
+        email = et_email2.getText().toString();
+        password = et_password2.getText().toString();
+
+        if(TextUtils.isEmpty(email)){
+            et_email2.setError("Email is required");
+            et_email2.requestFocus();
+        }else if(TextUtils.isEmpty(password)){
+            et_password2.setError("Password is required");
+            et_password2.requestFocus();
+        }else if(password.length() < 7){
+            et_password2.setError("Password must be longer than 6 characters");
+            et_password2.requestFocus();
+        }else{
+            firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(UserLogin.this, "Logged In successfully", Toast.LENGTH_SHORT).show();
+                        Intent mainActivityIntent = new Intent (UserLogin.this, MainActivity.class);
+                        startActivity(mainActivityIntent);
+                    }else{
+                        Toast.makeText(UserLogin.this, "Logged In failed", Toast.LENGTH_SHORT).show();
+                        Log.d("Logged In", task.getException().getMessage());
+                    }
+                }
+            });
+        }
     }
 
     public void goToRegister (View view){

@@ -19,6 +19,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn_signOut;
     GoogleSignInClient googleSignInClient;
     FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
     UserModel userModel;
     boolean isLoggedIn = false;
     @Override
@@ -38,7 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Email SignIn
         firebaseAuth = FirebaseAuth.getInstance();
-
+        firebaseUser = firebaseAuth.getCurrentUser();
+        if(firebaseUser != null){
+            isLoggedIn = true;
+        }
 
         // Google SignIn
         GoogleSignInOptions gso = new GoogleSignInOptions.
@@ -100,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void signOut (View view){
+        firebaseAuth.signOut();
         logoutFromFacebook();
         logoutFromGoogle();
         isLoggedIn = false;

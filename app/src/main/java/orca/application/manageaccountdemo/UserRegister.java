@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +26,8 @@ public class UserRegister extends AppCompatActivity {
     String email;
     String password;
     FirebaseAuth firebaseAuth;
+    boolean isLoggedIn = false;
+    UserModel userModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +61,12 @@ public class UserRegister extends AppCompatActivity {
                     if(task.isSuccessful()){
                         Toast.makeText(UserRegister.this, "Registration successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(UserRegister.this, MainActivity.class);
+                        userModel = new UserModel();
+                        userModel.setPersonEmail(email);
+                        userModel.setPersonName("User " + ++Constants.USER_INDEX);
+                        Log.d("User info", userModel.toString());
+                        intent.putExtra(Constants.LOGGED_IN, isLoggedIn);
+                        intent.putExtra(Constants.ACCOUNT_INFO, (Parcelable) userModel);
                         startActivity(intent);
                     }else{
                         Toast.makeText(UserRegister.this, "Registration failed", Toast.LENGTH_SHORT).show();
@@ -67,6 +76,8 @@ public class UserRegister extends AppCompatActivity {
             });
         }
     }
+
+
 
     public void goToLogin (View view){
         Intent intent = new Intent(UserRegister.this, UserLogin.class);
