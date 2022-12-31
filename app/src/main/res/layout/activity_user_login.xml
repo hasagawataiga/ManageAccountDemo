@@ -87,6 +87,7 @@
             android:id="@+id/linearLayoutSignInMethod"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <com.google.android.gms.common.SignInButton
@@ -132,37 +133,44 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="20dp"
+            android:background="#000000"
+            android:text="Login"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
+
         <LinearLayout
-            android:id="@+id/linearLayoutLoginSignOut"
+            android:id="@+id/linearLayout_goToRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btn_login"
-                android:layout_width="120dp"
+            android:gravity="center_horizontal">
+            <TextView
+                android:id="@+id/tv_goToRegisterTag"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginBottom="20dp"
-                android:background="#000000"
-                android:text="Login"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                app:layout_constraintVertical_bias="1.0"
-                tools:ignore="MissingConstraints" />
-
-            <Button
-                android:id="@+id/sign_out_button"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="120dp"
-                android:layout_height="48dp"
-                android:layout_marginEnd="10dp"
-                android:background="#000000"
-                android:text="@string/sign_out"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold" />
+                android:text="New here?"
+                android:textSize="14dp"
+                android:layout_marginEnd="15dp"/>
+            <TextView
+                android:id="@+id/tv_goToRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Register Now"
+                android:textSize="15dp"
+                android:textColorHighlight="@color/teal_700"
+                android:textColor="@color/teal_700"/>
         </LinearLayout>
+
 
     </LinearLayout>
 
