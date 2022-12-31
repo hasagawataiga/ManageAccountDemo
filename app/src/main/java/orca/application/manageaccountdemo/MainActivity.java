@@ -18,7 +18,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn_signIn;
     Button btn_signOut;
     GoogleSignInClient googleSignInClient;
+    FirebaseAuth firebaseAuth;
     UserModel userModel;
     boolean isLoggedIn = false;
     @Override
@@ -35,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Email SignIn
+        firebaseAuth = FirebaseAuth.getInstance();
+
+
+        // Google SignIn
         GoogleSignInOptions gso = new GoogleSignInOptions.
                 Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).
                 build();

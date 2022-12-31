@@ -26,11 +26,13 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Arrays;
 
 public class UserLogin extends AppCompatActivity {
 
+    FirebaseAuth firebaseAuth;
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
     Button btn_login_Google;
@@ -45,6 +47,11 @@ public class UserLogin extends AppCompatActivity {
 
         btn_login_Google = findViewById(R.id.btn_login_Google);
         btn_login_Facebook = findViewById(R.id.btn_login_Facebook);
+
+        // Email SignIn
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        // Google SignIn
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this, gso);
 
@@ -76,6 +83,11 @@ public class UserLogin extends AppCompatActivity {
     public void signInGoogle(View view){
         Intent signInIntent = gsc.getSignInIntent();
         startActivityForResult(signInIntent, 1000);
+    }
+
+    public void goToRegister (View view){
+        Intent registerIntent = new Intent(UserLogin.this, UserRegister.class);
+        startActivity(registerIntent);
     }
 
     @Override

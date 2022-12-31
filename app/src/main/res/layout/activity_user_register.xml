@@ -125,7 +125,7 @@
             android:layout_marginStart="90dp"
             android:layout_marginEnd="90dp"
             android:layout_marginBottom="20dp"
-            android:onClick="returnHome"
+            android:onClick="returnMainActivity"
             android:text="@string/ReturnToHome"
             android:textAlignment="center"
             android:textColor="@color/white"
