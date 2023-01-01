@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#393939"
     tools:context=".UserLogin">
 
     <!--    app:fontFamily="@font/advent_pro_thin"-->
@@ -19,7 +19,7 @@
         android:text="@string/Logo"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="45dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
@@ -35,7 +35,7 @@
         android:layout_marginBottom="50dp"
         android:text="@string/LoginTag"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
@@ -61,8 +61,8 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginBottom="20dp"
-            android:background="#FFFFFF"
-            android:hint="@string/Username"
+            android:background="#CEFFDC"
+            android:hint="@string/Email"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:padding="10dp"
@@ -74,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginBottom="20dp"
-            android:background="#005E4A4A"
+            android:background="#CEFFDC"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:minHeight="48dp"
@@ -109,15 +109,16 @@
                 android:drawableLeft="@drawable/gg_icon"
                 android:onClick="signInGoogle"
                 android:paddingStart="12dp"
-                android:text="Google"
-                android:textSize="12dp" />
+                android:text="@string/google"
+                android:textSize="12dp"
+                android:textStyle="bold"/>
 
             <com.facebook.login.widget.LoginButton
                 android:id="@+id/sign_in_Facebook_button"
                 android:layout_width="150dp"
                 android:layout_height="100dp"
                 android:layout_marginBottom="20dp"
-                android:text="Facebook"
+                android:text="@string/facebook"
                 android:visibility="gone" />
 
             <Button
@@ -128,8 +129,9 @@
                 android:background="@color/white"
                 android:drawableLeft="@drawable/fb_icon"
                 android:paddingStart="12dp"
-                android:text="Facebook"
-                android:textSize="12dp" />
+                android:text="@string/facebook"
+                android:textSize="12dp"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -138,13 +140,10 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="30dp"
             android:layout_marginBottom="20dp"
-            android:background="#000000"
+            android:background="@drawable/button"
             android:onClick="signIn"
-            android:text="Login"
-            android:textColor="#FFFFFF"
+            android:text="@string/login"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintVertical_bias="1.0"
@@ -159,8 +158,9 @@
                 android:id="@+id/tv_goToRegisterTag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New here?"
+                android:text="@string/new_here"
                 android:textSize="14dp"
+                android:textColor="@color/white"
                 android:layout_marginEnd="15dp"/>
 
             <TextView
@@ -168,7 +168,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="goToRegister"
-                android:text="Register Now"
+                android:text="@string/register_now"
                 android:textColor="@color/teal_700"
                 android:textColorHighlight="@color/teal_700"
                 android:textSize="15dp"
