@@ -132,6 +132,11 @@ public class UserLogin extends AppCompatActivity {
         startActivity(registerIntent);
     }
 
+    public void goToResetPasswordViaEmail (View view){
+        Intent intent = new Intent (UserLogin.this, UserResetPasswordViaEmail.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         callbackManager.onActivityResult(requestCode, resultCode, data);

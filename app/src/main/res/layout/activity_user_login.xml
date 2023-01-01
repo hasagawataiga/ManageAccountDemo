@@ -48,7 +48,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:orientation="vertical"
         android:paddingHorizontal="50dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,6 +82,16 @@
             android:textColor="#000000"
             android:textColorHint="#575757"
             tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tv_forgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="Forgot Password?"
+            android:textColor="@color/white"
+            android:layout_marginBottom="20dp"
+            android:onClick="goToResetPasswordViaEmail"/>
 
         <LinearLayout
             android:id="@+id/linearLayoutSignInMethod"
