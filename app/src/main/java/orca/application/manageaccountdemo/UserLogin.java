@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.login.LoginClient;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -48,6 +49,7 @@ public class UserLogin extends AppCompatActivity {
     String password;
 
     CallbackManager callbackManager;
+    LoginClient loginClient;
     UserModel userModel;
     boolean isLoggedIn = false;
     @Override
@@ -68,6 +70,9 @@ public class UserLogin extends AppCompatActivity {
         gsc = GoogleSignIn.getClient(this, gso);
 
         callbackManager = CallbackManager.Factory.create();
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
 
         LoginManager.getInstance().registerCallback(callbackManager,
                 new FacebookCallback<LoginResult>() {
